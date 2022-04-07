@@ -38,3 +38,4 @@ Cambios a Stage:
     4. Para agregar mas de un archivo se puede usar la siguiente sintaxis:
         git add test1.txt test2.txt (Se separan con un espacio).
     5. Para comprometer los cambios se utiliza el comando: git commit -m "Texto descriptivo para el commit"
+        5.1 Como realizar un commit de una forma opcional: git commit (Abrira el VSC, escribimos el nombre descriptivo, guardamos y cerramos la ventana abierta en el VSC)
