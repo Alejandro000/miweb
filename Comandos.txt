@@ -1,0 +1,40 @@
+Estos son los pasos, configuraciones y comandos para usar en git estbleciendo el entorno de trabajo
+
+Configuracion:
+    1. Versión de git: git --version
+    2. Configuración global y no por proyecto: git config --global user.name "Nombre del Usuario"
+    3. Configuracion del correo: git config --global user.email correo del user
+    4. Indicador de nuestro editor de texto por defecto: git config --global core.editor "code --wait"
+    5. Archivo de configuración global: git config --global -e
+    6. Establecer los caracteres CR LF para el SO del usuario:
+        Windows: git config --global core.autocrlf true
+        Mac/Linux: git config --global core.autocrlf input
+    7. Visualizador de los comandos de git: git config -h
+
+Comandos:
+    1. listar los archivos y carpetas dentro del directorio donde estamos: ls
+    2. Nos indica el sito donde nos encontramos en la terminal: pwd
+    3. Crear directorio: mkdir nombredeldirectorio
+    4. Inicializar un repositorio git completamente vacío dentro del directorio que hemos creado: git init
+    5. Mostrar todos los archivos del directorio: ls -a
+    6. El directorio .git dentro de nuestro proyecto muestra todos los archivos que usa git para gestionar nuestros proyectos, muestra los detalles de implementación donde se almacena absolutamente todo. Y está optimizado para usar el menor espacio. La carpeta .git es ignorada por todos los repositorios y nunca se comparte.
+
+Flujo de trabajo:
+    Computador -|-> Stage -|-> Commit -|-> Server
+    Computador: Aquí se agregan y modifican los archivos, pero solo de manera local.
+    Stage: Al ejecutar el comando de git add se pasan los archivos del Computador a Stage. Todavía no se reflejarán los cambios en el repositorio. Es una etapa intermedia e la que se indican cuales son los cambios que hemos efectuado y en que archivos. Y no pasan todos los archivos modificados, solo los que nostros elijamos. Tambien podemos sacar los elementos de la etapa de stage.
+    Commit: Archivos comprometidos, al pasar los archivos de Stage a Commit se eliminan del proceso de Stage. Son los archivos que se subiran al Server
+    Server: Aquí se suben los archivos comprometidos.
+
+    //El flujo es el mismo por si se desea eliminar un archivo.
+
+Cambios a Stage:
+    1. Abre VSC: code .
+    2. Estado de nuestro repositorio: git status
+    3. Seleccionamos el archivo que deseamos agregar a Stage (existen varias formas): 
+        git add ejemplo.html (Aqui se escribe el nombre del archivo y el tipo de archivo que es)
+        git add *.txt (Agregar todos los archivos .txt)
+        git add . (Agega absolutamente todos los archivos, es considerado una mala practica)
+    4. Para agregar mas de un archivo se puede usar la siguiente sintaxis:
+        git add test1.txt test2.txt (Se separan con un espacio).
+    5. Para comprometer los cambios se utiliza el comando: git commit -m "Texto descriptivo para el commit"
