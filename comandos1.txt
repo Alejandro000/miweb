@@ -58,3 +58,28 @@ Recuperar cambios del Stage:
 
 Mover y cambiar nombre de los archivos:
     1. mv test1.txt test2.txt (Se cambia el nombre del archivo seleccionado)
+    2. git add test1.txt test2.txt (Se elimina el test1 y se crea el test2, lo unico que sucede es que se cambia de nombre, sin embargo git lo maneja como si fueran distintos archivos, por lo cual debemos realizar los pasos como si fueran dos archivos)
+    3. git commit -m "Cambio de nombre"
+    Existe una forma de saltar el paso de añadir (git add test1.txt test2.txt) y es la siguiente:
+        git mv test1.txt test2.txt
+        git commit -m "Cambio de nombre 1.1"
+
+Ignorando archivos y directorios:
+    1. Se crea el archivo .env
+    2. Se ingresan los valores que se desean agregar
+    3. Se crea otro archivo llamado .gitignore
+    4. Dentro de git ignore escribimos el nombre de los archivos que deseamos ignorar: 
+        .env
+        etc
+    5. Se agrega el archivo .gitignore al Stage: git add .gitignore
+    6. Se realiza el commit: git commit -m "agregando archivo gitignore"
+
+Git Status:
+    Para visualizar mejor el status de git usamos el comando: git status -s
+    Se visualizaran distintas letras de diferente color:
+    Archivo modificado que no está en Stage: M (rojo)
+    Archivo modificado en stage: M (verde)
+    Archivo renombrado: R (Verde)
+    Archivo añadido a Stage: A (Verde)
+    Archvio creado y guardado en la Computadora: ?? (Rojo)
+    Los archivos que cambian nombre pero no han hecho el stage: D (rojo y junto a la letra de A o M)
