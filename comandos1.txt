@@ -42,21 +42,23 @@ Cambios a Stage:
 
 Eliminando archivos de nuestro repositorio:
     1. Comando para eliminar archivos: rm test1.txt
-    Para borrarlo hay que seguir este flujo:
+    Para borrarlo hay que seguir este flujo: (Este proceso funciona en Stage y Computadora)
         rm test1.txt (borrar el archivo)
         git add test1.txt (Añadir el cambio, realizado, al Stage)
         git commit -m "Eliminando test1" (Se compromete el cambio realizado)
     Con este proceso el archivo se eliminó y podemos visualizarlo con el comando ls para confirmar que el archivo ya no está
-    Existe una forma de saltar el paso de añadir (git add test1.txt) y es la siguiente:
+    Existe una forma de saltar el paso de añadir (git add test1.txt) y es la siguiente: (esta forma solo funciona cuando los archivos se encuentran en commit, no funciona en stage ni en Computadora)
         git rm test1.txt
         git commit -m "Eliminar test1 de manera más directa"
+    Si se crea un archivo ejemplo.txt y se añade a stage, pero luego se borra en la seccion de Computador sin añadirlo a stage, y le hacemos un commit el archivo estará borrado a nivel de computador pero estará en commit y si se envía al servidor el archivo se mostrará. Cuando hagamos el stage de la versión del computador se cargará como eliminado y le haremos el commit para eliminarlo...
 
 Recuperar cambios del Stage:
     Los archivos borrados que se encuentran en Stage pueden ser recuperados mediante el siguiente flujo:
-        git restore --staged test1.txt (Se regresa el archivo de Satge al Computador, sin embargo el archivo sigue eliminado)
+        git restore --staged test1.txt (Se regresa el archivo de Stage al Computador, sin embargo el archivo sigue eliminado)
         git restore test1.txt (Se recupera el archivo borrado)
 
 Mover y cambiar nombre de los archivos:
+    Este cambio de nombre se puede entender como si se creara un nuevo archivo con el nombre nuevo elegido y la misma información del archivo al que se le quería cambiar el nombre, y se elimina el archivo con el nombre antiguo.
     1. mv test1.txt test2.txt (Se cambia el nombre del archivo seleccionado)
     2. git add test1.txt test2.txt (Se elimina el test1 y se crea el test2, lo unico que sucede es que se cambia de nombre, sin embargo git lo maneja como si fueran distintos archivos, por lo cual debemos realizar los pasos como si fueran dos archivos)
     3. git commit -m "Cambio de nombre"
@@ -82,4 +84,19 @@ Git Status:
     Archivo renombrado: R (Verde)
     Archivo añadido a Stage: A (Verde)
     Archvio creado y guardado en la Computadora: ?? (Rojo)
-    Los archivos que cambian nombre pero no han hecho el stage: D (rojo y junto a la letra de A o M)
+    Los archivos que cambian nombre pero no han hecho el stage: D (rojo y junto a la letra de A o M) (La D roja significa archivo borrado en la etapa de Stage)
+    (Cuando un archivo tiene dos letras, usualmente de distinto color significa que hay una version en stage guardada y la de la Computadora se ha modificado pero no se ha subido a la etapa de Stage)
+    Archivo borrado de Commit: D (Verde)
+
+Visualizar cambios:
+    1. Ver todos los cambios realizados en el computador: git diff
+    2. Ver todos los cambios realizados en Stage para Commit: git diff --staged
+
+Revisar Historial:
+    1. Ver toda la informacion de los commits: git log
+    2. Muestra el historia de manera mas resumida: git log --oneline
+
+Ramas y branches:
+    1. Donde nos encontramos en las ramas: git branch
+    2. Crear una rama y pasarse a esa rama: git checkout -b nombredelarama
+    3. Cambiar de rama: git checkout nombredelaramag (Solo se pueden cambiar de rama si los archivos se eencuentran en commit y no hay modificaciones de archivos en Computador o Stage)
