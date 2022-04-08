@@ -101,3 +101,4 @@ Ramas y branches:
     2. Crear una rama y pasarse a esa rama: git checkout -b nombredelarama
     3. Cambiar de rama: git checkout nombredelaramag (Solo se pueden cambiar de rama si los archivos se encuentran en commit y no hay modificaciones de archivos en Stage)
     4. Combinar ramas secundarias con la principal nos debemos situar en la rama principal para realizar la unión: git merge nombredelaramasecundaria
+    5. git push -u origin nombrederamanueva
